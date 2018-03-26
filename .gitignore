@@ -1,0 +1,6 @@
+/*
+!.gitignore
+!Vagrantfile
+ 
+.DS_store
+*~
