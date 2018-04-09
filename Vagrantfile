@@ -19,8 +19,7 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
   config.ssh.insert_key = false
   config.vm.synced_folder './setuplog', '/mnt/setuplog', create: true
-  config.vm.network "forwarded_port", guest: 6443, guest_ip: "192.168.205.10", host: 6443, protocol: "tcp"
-
+ 
   boxes.each do |opts|
     config.vm.define opts[:name] do |config|
       config.vm.hostname = opts[:name]
@@ -54,13 +53,14 @@ Vagrant.configure("2") do |config|
         config.vm.provision "shell", inline: <<-SHELL
           kubeadm init --apiserver-advertise-address=#{opts[:eth1]} --pod-network-cidr=10.244.0.0/16 | tee /mnt/setuplog/kubeadm.log
           sudo -u #{user} mkdir -p #{user_home}/.kube
-          cp -i /etc/kubernetes/admin.conf #{user_home}/.kube/config
+          cp /etc/kubernetes/admin.conf #{user_home}/.kube/config
+          cp /etc/kubernetes/admin.conf /vagrant/conf/admin.conf
           chown #{user}:#{group} #{user_home}/.kube/config
           sysctl net.bridge.bridge-nf-call-iptables=1
           # General user
-          sudo -u #{user} sh /vagrant/shell/setup.sh
-          # Master isolation
-          kubectl taint nodes --all node-role.kubernetes.io/master-
+          sudo -u #{user} -i /vagrant/shell/network-plugin.sh
+          # node setup
+          sudo -u #{user} -i /vagrant/shell/nodesetup.sh
         SHELL
       end
     end
