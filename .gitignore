@@ -1,5 +1,6 @@
-/*
-!.gitignore
-!Vagrantfile
 .DS_store
 *~
+conf/admin.conf
+setuplog/kubeadm.log
+.vagrant/
+*.log
