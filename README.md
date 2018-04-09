@@ -1,7 +1,8 @@
 # local-k8s
-local k8s environment
 
-# TODOs
+local k8s environment. 
+Set up single node cluster in 10 mininutes with Vagrant.
 
-- [] With ansible if this provision more complex.
-    current design does not need ansible. My selection is shell provisionner.
+## TODOs
+
+- [] Describe README.md
