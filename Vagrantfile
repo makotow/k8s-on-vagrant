@@ -6,7 +6,7 @@ boxes = [
         :name => "master",
         :role => :master,
         :eth1 => "192.168.205.10",
-        :mem => "2048",
+        :mem => "4096",
         :cpu => "2"
     },
 ]
@@ -51,6 +51,7 @@ Vagrant.configure("2") do |config|
       if opts[:role] == :master
       ## master
         config.vm.provision "shell", inline: <<-SHELL
+          kubeadm config images pull
           kubeadm init --apiserver-advertise-address=#{opts[:eth1]} --pod-network-cidr=10.244.0.0/16 | tee /mnt/setuplog/kubeadm.log
           sudo -u #{user} mkdir -p #{user_home}/.kube
           cp /etc/kubernetes/admin.conf #{user_home}/.kube/config
