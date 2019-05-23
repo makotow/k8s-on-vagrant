@@ -1,8 +1,34 @@
-# local-k8s
+# One line title
 
-local k8s environment. 
-Set up single node cluster in 10 mininutes with Vagrant.
+*Read this in other languages: [日本語](README.ja.md)
 
-## TODOs
+## What is this?
 
-- [] Describe README.md
+
+## Requirements
+
+Currently supported following environment.
+
+## Current features
+
+- list up features
+
+## How to use?
+
+
+
+```Examples
+$ xxxx
+```
+
+## TODO
+- list
+
+## Authors
+
+- [@makotow](https://github.com/makotow)
+
+## License
+
+MIT
+
