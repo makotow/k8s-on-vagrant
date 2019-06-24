@@ -4,3 +4,4 @@ conf/admin.conf
 setuplog/kubeadm.log
 .vagrant/
 *.log
+shell/join.sh # auto generate shell

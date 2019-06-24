@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-kubectl taint nodes --all node-role.kubernetes.io/master-
+echo "Please write code if you needs custum operations for master nodes."
