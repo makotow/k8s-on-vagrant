@@ -1,34 +1,36 @@
 # One line title
 
-*Read this in other languages: [日本語](README.ja.md)
+* 他の言語で読む: [English](README.md)
 
-## What is this?
+## これはなに
 
+Vagrant上で 2node(masterx1, workerx1) kubernetesクラスタを立ち上げるものです。
 
-## Requirements
+## 前提条件
 
-Currently supported following environment.
+現在は以下の環境をサポートしています。
 
-## Current features
+* VM: Ubuntu 18.04 Bionic Beaver
+* Kubernetes 1.15
 
-- list up features
+## 使い方
 
-## How to use?
-
-
-
-```Examples
-$ xxxx
+```bash
+vagrant up
 ```
 
-## TODO
-- list
+## 中身
+
+作りは至ってシンプルでkubeadmを使ったプロビジョニングを自動化したものです。
+
+VagrantfileにVMのプロビジョニングが記載されています。
+Vagrantfileから呼び出されるshellスクリプトはshellディレクトリに配置されており、
+その内容は普通の環境でも適応可能なものです。
 
 ## Authors
 
-- [@makotow](https://github.com/makotow)
+* [@makotow](https://github.com/makotow)
 
-## License
+## ライセンス
 
 MIT
-
