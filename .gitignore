@@ -4,4 +4,5 @@ conf/admin.conf
 setuplog/kubeadm.log
 .vagrant/
 *.log
-shell/*join.sh 
+shell/join.sh 
+private/
